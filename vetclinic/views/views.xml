@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <!-- Animal Tree View -->
+    <record id="view_tree_vetclinic_animal" model="ir.ui.view">
+      <field name="name">view.tree.vetclinic.animal</field>
+      <field name="model">vetclinic.animal</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="color"/>
+          <field name="weight"/>
+          <field name="owner"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_form_vetclinic_animal" model="ir.ui.view">
+      <field name="name">view.form.vetclinic.animal</field>
+      <field name="model">vetclinic.animal</field>
+      <field name="arch" type="xml">
+        <form>
+          <group>
+            <group>
+              <field name="name"/>
+              <field name="color"/>
+            </group>
+            <group>
+              <field name="weight"/>
+              <field name="owner"/>
+            </group>
+          </group>          
+        </form>
+      </field>
+    </record>
+
+    <record id="action_vetclinic_animal" model="ir.actions.act_window">
+      <field name="name">Animals</field>
+      <field name="res_model">vetclinic.animal</field>
+      <field name="view_mode">tree,form</field>
+      <field name="help" type="html">
+        <p class='oe_view_nocontent_create'>Click here to create a new animal record</p>
+      </field>
+    </record>
+
+    <menuitem id="menu_vetclinic_animal" name="Vetclinic"/>
+    <menuitem id="menu_vetclinic_animal_child" name="Vetclinic" parent="menu_vetclinic_animal"/>
+    <menuitem id="menu_vetclinic_animal_child_child" name="Animals" parent="menu_vetclinic_animal_child" action="action_vetclinic_animal"/>
+
+  </data>
+</odoo>
